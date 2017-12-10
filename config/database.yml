@@ -17,4 +17,5 @@ staging:
 
 production:
   database: publisher_platform_app_prod
-  <<: *defaults
+  username: postgres
+  host: localhost
