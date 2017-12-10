@@ -16,6 +16,7 @@ staging:
   <<: *defaults
 
 production:
+  adapter: postgresql
   database: publisher_platform_app_prod
   username: postgres
   host: localhost
