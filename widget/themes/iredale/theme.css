@@ -1,0 +1,168 @@
+/* Image definitions */
+
+body > header,
+body #content,
+body footer {
+  background-image: url(bg.png);
+}
+
+#paging ul li a span, span.mag-glass {
+  background-image: url(stone-nav.png);
+}
+
+#actions a {
+  background-image: url(action_icons.png);
+}
+
+
+#close {
+  background-image: url(x.png);
+}
+
+/* Color definitions */
+
+
+
+body > header .color {
+  background-color: #ff8592;
+}
+
+
+#widget header {
+  background-color: #693539;
+  background-image: url(client_branding.png);
+  text-shadow: rgba(0,0,0,0.4) 0 0 2px;
+}
+
+
+
+#viewport .audio-player {
+  background: #eeeeee;
+  border-bottom-color: #bbb;
+}
+
+#viewport .jspTrack {
+  background: #eee;
+}
+
+#viewport .jspDrag {
+  background: #bbb;
+}
+
+#viewport .jspDrag:hover {
+ background: #aaa; 
+}
+
+#viewport a {
+  color: #693539;
+}
+
+
+
+#search_options {
+  background: #eee;
+  border: solid 1px #61373b;
+}
+
+#send_message.loading {
+  background-image: url(send-message.gif);
+}
+
+
+
+a.click-to-open {
+  background-image: url(special-message.png);
+}
+
+form#search label {
+  color: #888;
+}
+
+.default #paging ul li:not(.disabled) a:not(:hover) {
+  color: #59504b;
+}
+
+#paging ul li:not(.disabled) a:hover {
+  color: #222;
+}
+
+#paging ul li.disabled a {
+  color: #999;
+  text-shadow: #ddd 0 1px 0;
+}
+
+#search_options a {
+  color: #61373b;
+}
+
+#search_options .selected a,
+#search_options a:hover {
+  background: #61373b;
+  color: #eee;
+}
+
+.default #viewport a                 {            color: #59504b; }
+.default #search_options a           {            color: #b39659; }
+.default #search_options .selected a { background-color: #b39659;            color: #eee; }                    
+.default #search_options a:hover     { background-color: #b39659;            color: #eee; }
+.default #search_options             { border: solid 1px #b39659; background-color: #eee; }
+.default body > header .color        { background-color: #b39659; background: none;}
+.default #widget header              { height: 40px; background-image: url( bg.png ); background-position: -25px -48px;  }
+
+.default #paging ul li a span, 
+.default span.mag-glass {
+  background-image: url(widgets-buttons.png);
+}
+
+
+
+#widget #branding-overlay {display:none;}
+body #header {display:none;}
+
+.default #widget > header {
+  left: 0;
+  width: auto;
+  background-color: transparent;
+}
+
+.default #widget > header h1 { display: none; }
+
+.default #widget > header p {
+  z-index: 100;
+}
+
+.default #widget > header #subhead { display: none; }
+
+.default #widget > header #more-link {
+  display: block;
+  position: absolute;
+  top: -10px;
+  width: 180px;
+  height: 50px;
+  left: 0;
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+
+/*body>header{height:63px;}*/
+#paging ul li.prev a{text-transform:lowercase; font-size:11px;}
+#paging ul li.prev a span{top:6px;}
+#paging ul li.next a{text-transform:lowercase; font-size:11px;}
+#paging ul li.next a span{top:6px;}
+#close{width:40px;}
+#close:hover{background-position:-44px 0;}
+span.mag-glass{left:-8px;top:0;width:21px;height:18px;background-position:-2px -28px;cursor:pointer;}
+span.mag-glass.disabled {
+  left: 0;
+  background-position: -10px -28px;
+}
+/*#actions{top:-40px;}*/
+
+form#search input[type="text"] {
+  left: 15px;
+}
+
+form#search label {
+  left: 19px;
+}

@@ -1,0 +1,25 @@
+%h1 Listing widget_generation_requests
+
+%table
+  %thead
+    %tr
+      %th Params
+      %th Client
+      %th Status
+      %th
+      %th
+      %th
+
+  %tbody
+    - @widget_generation_requests.each do |widget_generation_request|
+      %tr
+        %td= widget_generation_request.params
+        %td= widget_generation_request.client_id
+        %td= widget_generation_request.status
+        %td= link_to 'Show', widget_generation_request
+        %td= link_to 'Edit', edit_widget_generation_request_path(widget_generation_request)
+        %td= link_to 'Destroy', widget_generation_request, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Widget generation request', new_widget_generation_request_path

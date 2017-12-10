@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  params: MyText
+  client_id: 1
+  status: MyString
+
+two:
+  params: MyText
+  client_id: 1
+  status: MyString

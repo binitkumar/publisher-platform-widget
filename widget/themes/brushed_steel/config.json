@@ -1,0 +1,30 @@
+{
+  "green": {
+    "eeeeee": ["bg"],
+    "798300": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "b0be00": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  },
+  "sky": {
+    "eeeeee": ["bg"],
+    "0b7a97": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "4ad1f4": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  },
+  "magenta": {
+    "eeeeee": ["bg"],
+    "8f0048": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "e10074": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  },
+  "orange": {
+    "eeeeee": ["bg"],
+    "b55300": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "e67700": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  }
+}

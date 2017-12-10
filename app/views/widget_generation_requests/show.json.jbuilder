@@ -1,0 +1,1 @@
+json.partial! "widget_generation_requests/widget_generation_request", widget_generation_request: @widget_generation_request

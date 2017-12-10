@@ -1,0 +1,30 @@
+{
+  "mauve": {
+    "f1f0e6": ["bg"],
+    "943a41": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "c36269": ["rightbghover", "border","loader"],
+    "8f8b6c": ["text"]
+  },
+  "teal": {
+    "eeeeee": ["bg"],
+    "1f6760": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "52cbbf": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  },
+  "blue": {
+    "eeeeee": ["bg"],
+    "1f466f": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "5b99d9": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  },
+  "toffee": {
+    "eeeeee": ["bg"],
+    "402615": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "936950": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  }
+}

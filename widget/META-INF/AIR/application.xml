@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application xmlns="http://ns.adobe.com/air/application/1.5.3"> 
+    <id>widget.com.2ndcousinmedia.demo</id> 
+    <version>1.3.12</version> 
+    <publisherID>E5079C895A22FF9C6D86D90C4440F1EDDE649411.1</publisherID>
+    <name>VIP Desktop Widget</name> 
+    <filename>CPW</filename>
+    <allowBrowserInvocation>true</allowBrowserInvocation>
+    <initialWindow> 
+        <content>DesktopWidget.html</content> 
+        <systemChrome>none</systemChrome> 
+        <transparent>true</transparent> 
+        <visible>false</visible> 
+        <minimizable>true</minimizable> 
+        <maximizable>false</maximizable> 
+        <resizable>false</resizable> 
+        <width>324</width> 
+        <height>425</height>
+        <maxSize>324 500</maxSize> 
+    </initialWindow> 
+    <icon> 
+        <image16x16>icons/icon-16.png</image16x16> 
+        <image32x32>icons/icon-32.png</image32x32> 
+        <image48x48>icons/icon-48.png</image48x48> 
+        <image128x128>icons/icon-128.png</image128x128>  
+    </icon>
+    
+</application>

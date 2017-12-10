@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desktop Widget</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+
+    <!--[if IE]>
+    <script type="text/javascript" charset="utf-8">
+      var els = ['header','section','nav','footer'];
+      for(var i = 0; i<4; i++){ document.createElement(els[i]); }
+    </script>
+    <![endif]-->
+
+    <style type="text/css" media="screen">
+      body { background-color: transparent; width: 284px; }
+    </style>
+    
+    <script type="application/x-shockwave-flash" src="lib/applicationupdater.swf"></script>
+    <script type="application/x-shockwave-flash" src="lib/servicemonitor.swf"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/src.js"></script>
+    <script type="text/javascript" src="js/actions.js"></script>
+    <script type="text/javascript" src="js/theme.js"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+
+      if (window.air && air.ApplicationUpdater) {
+        var appUpdater = new air.ApplicationUpdater();
+
+        appUpdater.updateURL = config.update_url;
+        appUpdater.delay = 0.25;
+        appUpdater.initialize();
+        appUpdater.addEventListener("updateError", function (e) {
+          // Handled;
+        }); 
+        appUpdater.addEventListener(window.runtime.air.update.events.DownloadErrorEvent.DOWNLOAD_ERROR, function (e) {
+          // Handled;
+        });
+      }
+
+      // Initialize the Widget
+      DesktopWidget.init();
+      Tracking.track("launched");
+      Request.process();
+      
+    </script>
+  </head>
+  
+  <body  style="-webkit-app-region: drag">
+    <header>
+      <span id="move-handle"></span>
+      <a id="close" href="#">Close</a>
+      <span class="color"></span>
+    </header>
+    <section id="widget">
+
+      <header>
+        <h1>Client Branding</h1>
+        <p><span id="subhead">Subheading</span> <a id="more-link" href="#">(web)</a></p>
+        <div id="branding-overlay"></div>
+      </header>
+      <nav id="actions">
+        <ul>
+          <li id="act_question"><a href="#"><em><strong>Help Desk</strong></em></a></li>
+          <li id="act_email"><a href="#"><em><strong>Email</strong></em></a></li>
+          <li id="act_phone"><a href="#"><em><strong>Display Phone No.</strong></em></a></li>
+        </ul>
+      </nav>
+      <section id="content">
+        <div id="viewport">
+          <div id="contact_form" style="top: -210px">
+            <form action="." method="post">
+              <input type="hidden" name="reason" value="ask" id="reason" />
+              <p>
+                <label for="name">Full Name</label><input type="text" name="name" value="" id="name" />
+              </p>
+              <p>
+                <label for="phone">Phone</label><input type="text" name="phone" value="" id="phone" />
+              </p>
+              <p>
+                <label for="email">Email</label><input type="text" name="email" value="" id="email" />
+              </p>
+              <p>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="20" rows="10"></textarea>
+              </p>
+              <p id="send_message">
+                <span id="message_sent">Message Sent!</span>
+                <a id="send_cancel" href="#">Cancel</a>
+                <a id="send" href="#">Send Message &rarr;</a>
+                <input style="display:none" type="submit" value="Submit" />
+              </p>
+            </form>
+          </div>
+          <div id="no_connection" style="display: none">
+            <h2>Connection Problem</h2>
+            <p>We are having trouble contacting our content server. Make sure your computer is online then <a href="#" id="try_again">try again</a>! </p>
+          </div>
+          <nav id="paging">
+            <ul>
+              <li class="prev"><a href="#"><span></span> Previous Message</a></li>
+              <li class="next"><a href="#">Next Message <span></span></a></li>
+            </ul>
+          </nav>
+        </div>
+        <form id="search">
+          <select name="desitination" id="desitination">
+            <option value="archives">Search Archives</option>
+            <option value="dr_site">Search Dr&rsquo;s Site</option>
+            <option value="dr_resource">Search the Doctors Resource Center</option>
+          </select>
+          <label for="search-field">Type search here</label>
+          <input type="text" name="search" value="" id="search-field" />
+          <input type="submit" value="Search" id="search_submit">
+          <span class="mag-glass"></span>
+        </form>
+      </section>
+      <footer>
+        <!-- Branding Goes Here -->
+      </footer>
+    </section>
+  </body>
+</html>

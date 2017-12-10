@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Params:
+  = @widget_generation_request.params
+%p
+  %b Client:
+  = @widget_generation_request.client_id
+%p
+  %b Status:
+  = @widget_generation_request.status
+
+= link_to 'Edit', edit_widget_generation_request_path(@widget_generation_request)
+\|
+= link_to 'Back', widget_generation_requests_path

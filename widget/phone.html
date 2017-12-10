@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+
+  <title>Phone Number</title>
+  <style type="text/css" media="screen">
+    body, html { background: transparent; padding: 0; margin: 0; height: 125px; overflow: hidden;}
+    body {
+      cursor: default;
+    }
+    #phone {
+      padding: 15px 0;
+      color: #fff;
+      background: rgba(0,0,0,0.85);
+      text-shadow: #000 2px 2px 0;
+      font-family: "Helvetica", "Arial";
+
+      text-align: center;
+      min-width: 500px;
+      max-width: 900px;
+      margin: 0 auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-border-radius: 25px;
+    }
+    
+    #phone strong {
+      font-weight: normal;
+      font-size: 75px;
+      line-height: 75px;
+      zoom: 0;
+    }
+    
+    #phone em {
+      font-weight: normal;
+      text-shadow: none;
+      font-size: 12px;
+      line-height: 12px;
+      color: rgba(150,150,150,1.0);
+      text-transform: uppercase;
+      font-style: normal;
+      font-family: helvetica, arial;
+      letter-spacing: 2px;
+    }
+  </style>
+  <script type="text/javascript" src="js/lib.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      remote = require("electron").remote;
+      $("body").on("click", function(){
+        remote.getCurrentWindow().hide();
+        window.opener.jQuery("#act_phone").removeClass('selected');
+      });
+    });
+    function getPhone (){
+      if(window.opener && window.opener.config.text.phone){
+        document.getElementById("phone").getElementsByTagName("strong")[0].innerHTML = window.opener.config.text.phone;
+      }
+    }
+  </script>
+</head>
+
+<body onload="getPhone();">
+  <div id="phone">
+    <strong>413-446-3398</strong><br />
+    <em>click to close</em>
+  </div>
+</body>
+</html>

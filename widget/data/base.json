@@ -1,0 +1,14 @@
+{
+  "text": {
+    "main": "Doug Neiner",
+    "sub": "This is great"
+  },
+  "map": {
+    "setup": true,
+    "center": "40.5178052,-105.0638368",
+    "markers": "40.5178052,-105.0638368,red"
+  },
+  "search": [
+    ["Google", "http://google.com/search?q=%S"]
+  ]
+}

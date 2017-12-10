@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  username: binitkumar
+  host: localhost
+
+development:
+  database: publisher_platform_app_dev
+  <<: *defaults
+
+test: &test
+  database: publisher_platform_app_test
+  <<: *defaults
+  
+staging:
+  database: publisher_platform_app_staging
+  <<: *defaults
+
+production:
+  database: publisher_platform_app_prod
+  <<: *defaults

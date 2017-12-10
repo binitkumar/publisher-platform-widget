@@ -1,0 +1,9 @@
+{
+  "default": {
+    "fffef7": ["bg"],
+    "b39659": ["leftbg", "rightbg", "righticonhover", "slider"],
+    "ffffff": ["lefticon", "righticon", "track"],
+    "edc87a": ["rightbghover", "border", "loader"],
+    "888888": ["text"]
+  }
+}

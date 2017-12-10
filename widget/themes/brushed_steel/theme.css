@@ -1,0 +1,155 @@
+/* Image definitions */
+
+body > header,
+body #content,
+body footer {
+  background-image: url(bg.png);
+}
+
+#paging ul li a span, span.mag-glass {
+  background-image: url(stone-nav.png);
+}
+
+#actions a {
+  background-image: url(action_icons.png);
+}
+
+
+#close {
+  background-image: url(x.png);
+}
+
+/* Color definitions */
+
+
+
+body > header .color {
+  background-color: #ff8592;
+}
+
+
+#widget header {
+  background-color: #693539;
+  background-image: url(client_branding.png);
+  text-shadow: rgba(0,0,0,0.4) 0 0 2px;
+}
+
+
+
+#viewport .audio-player {
+  background: #eeeeee;
+  border-bottom-color: #bbb;
+}
+
+#viewport .jspTrack {
+  background: #eee;
+}
+
+#viewport .jspDrag {
+  background: #bbb;
+}
+
+#viewport .jspDrag:hover {
+ background: #aaa; 
+}
+
+#viewport a {
+  color: #693539;
+}
+
+
+
+#search_options {
+  background: #eee;
+  border: solid 1px #61373b;
+}
+
+#send_message.loading {
+  background-image: url(send-message.gif);
+}
+
+
+
+a.click-to-open {
+  background-image: url(special-message.png);
+}
+
+form#search label {
+  color: #888;
+}
+
+.green #paging ul li:not(.disabled) a:not(:hover) {
+  color: #606800;
+}
+
+#paging ul li:not(.disabled) a:hover {
+  color: #222;
+}
+
+#paging ul li.disabled a {
+  color: #999;
+  text-shadow: #ddd 0 1px 0;
+}
+
+#search_options a {
+  color: #61373b;
+}
+
+#search_options .selected a,
+#search_options a:hover {
+  background: #61373b;
+  color: #eee;
+}
+
+.sky #viewport a                 {            color: #0b7a97; }
+.sky #search_options a           {            color: #0b7a97; }
+.sky #search_options .selected a { background-color: #0b7a97;            color: #eee; }
+.sky #search_options a:hover     { background-color: #0b7a97;            color: #eee; }
+.sky #search_options             { border: solid 1px #0b7a97; background-color: #eee; }
+.sky body > header .color        { background-color: #0b7a97; }
+.sky #widget header              { background-color: #0b7a97; background-image: url(client_branding_deepsky.png); }
+
+.sky #paging ul li a span, 
+.sky span.mag-glass {
+  background-image: url(widgets-buttons_deepsky.png);
+}
+
+.green #viewport a                 {            color: #919e01; }
+.green #search_options a           {            color: #919e01; }
+.green #search_options .selected a { background-color: #919e01;            color: #eee; }                    
+.green #search_options a:hover     { background-color: #919e01;            color: #eee; }
+.green #search_options             { border: solid 1px #919e01; background-color: #eee; }
+.green body > header .color        { background-color: #919e01; }
+.green #widget header              { background-color: #919e01; background-image: url(client_branding_green.png); }
+
+.green #paging ul li a span, 
+.green span.mag-glass {
+  background-image: url(widgets-buttons_green.png);
+}
+
+.magenta #viewport a                 {            color: #8f0048; }
+.magenta #search_options a           {            color: #8f0048; }
+.magenta #search_options .selected a { background-color: #8f0048;            color: #eee; }                    
+.magenta #search_options a:hover     { background-color: #8f0048;            color: #eee; }
+.magenta #search_options             { border: solid 1px #8f0048; background-color: #eee; }
+.magenta body > header .color        { background-color: #8f0048; }
+.magenta #widget header              { background-color: #8f0048; background-image: url(client_branding_magenta.png); }
+
+.magenta #paging ul li a span, 
+.magenta span.mag-glass {
+  background-image: url(widgets-buttons_magenta.png);
+}
+
+
+.orange #viewport a                 {            color: #b55300; }
+.orange #search_options a           {            color: #b55300; }
+.orange #search_options .selected a { background-color: #b55300;            color: #eee; }                    
+.orange #search_options a:hover     { background-color: #b55300;            color: #eee; }
+.orange #search_options             { border: solid 1px #b55300; background-color: #eee; }
+.orange body > header .color        { background-color: #b55300; }
+.orange #widget header              { background-color: #b55300; background-image: url(client_branding_orange.png); }
+
+.orange #paging ul li a span, 
+.orange span.mag-glass {
+  background-image: url(widgets-buttons_orange.png);
+}

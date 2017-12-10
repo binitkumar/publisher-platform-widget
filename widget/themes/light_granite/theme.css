@@ -1,0 +1,152 @@
+/* Image definitions */
+
+body > header,
+body #content,
+body footer {
+  background-image: url(stone-bg.png);
+}
+
+#paging ul li a span, span.mag-glass {
+  background-image: url(stone-nav.png);
+}
+
+#actions a {
+  background-image: url(action_icons.png);
+}
+
+
+#close {
+  background-image: url(x.png);
+}
+
+/* Color definitions */
+
+
+
+body > header .color {
+  background-color: #ff8592;
+}
+
+#widget header {
+  background-color: #693539;
+  background-image: url(client_branding.png);
+}
+
+form#search label {
+  color: #847e59;
+}
+
+#paging ul li:not(.disabled) a:hover {
+  color: #262108;
+}
+
+#paging ul li.disabled a {
+  color: #a69e73;
+  text-shadow: rgba(255,255,255,0.6) 0 1px 0;
+}
+
+
+
+#viewport .audio-player {
+  background: #f1f0e6;
+  border-bottom-color: #b9b7a5;
+}
+
+#viewport .jspTrack {
+  background: #e5e5e5;
+}
+
+#viewport .jspDrag {
+  background: #b9b7a5;
+}
+
+#viewport .jspDrag:hover {
+ background: #a6a389; 
+}
+
+#viewport a {
+  color: #693539;
+}
+#send_message.loading {
+  background-image: url(send-message.gif);
+}
+
+
+a.click-to-open {
+  background-image: url(special-message.png);
+}
+
+#search_options {
+  background: #f1f0e6;
+  border: solid 1px #564d2c;
+}
+
+#search_options a {
+  color: #544c2a;
+}
+
+#search_options .selected a,
+#search_options a:hover {
+  background: #61373b;
+  color: #f1f0e6;
+}
+
+.teal #viewport a                 {            color: #1f6760; }
+.teal #search_options a           {            color: #1f6760; }
+.teal #search_options .selected a { background-color: #1f6760;            color: #f1f0e6; }                    
+.teal #search_options a:hover     { background-color: #1f6760;            color: #f1f0e6; }
+.teal #search_options             { border: solid 1px #1f6760; background-color: #f1f0e6; }
+.teal body > header .color        { background-color: #1f6760; }
+.teal #widget header              { background-color: #1f6760; background-image: url(client_branding_teal.png); }
+
+.teal #widget > header #branding-overlay { background-color : rgba(0,0,0,0.0); }
+
+.teal #paging ul li a span, 
+.teal span.mag-glass {
+  background-image: url(widgets-buttons_teal.png);
+}
+
+.mauve #viewport a                 {            color: #943a41; }
+.mauve #search_options a           {            color: #943a41; }
+.mauve #search_options .selected a { background-color: #943a41;            color: #f1f0e6; }                    
+.mauve #search_options a:hover     { background-color: #943a41;            color: #f1f0e6; }
+.mauve #search_options             { border: solid 1px #943a41; background-color: #f1f0e6; }
+.mauve body > header .color        { background-color: #943a41; }
+.mauve #widget header              { background-color: #943a41; background-image: url(client_branding_mauve.png); }
+
+.mauve #widget > header #branding-overlay { background-color : rgba(0,0,0,0.0); }
+
+.mauve #paging ul li a span, 
+.mauve span.mag-glass {
+  background-image: url(widgets-buttons_mauve.png);
+}
+
+.toffee #viewport a                 {            color: #402615; }
+.toffee #search_options a           {            color: #402615; }
+.toffee #search_options .selected a { background-color: #402615;            color: #f1f0e6; }                    
+.toffee #search_options a:hover     { background-color: #402615;            color: #f1f0e6; }
+.toffee #search_options             { border: solid 1px #402615; background-color: #f1f0e6; }
+.toffee body > header .color        { background-color: #402615; }
+.toffee #widget header              { background-color: #402615; background-image: url(client_branding_toffee.png); }
+
+.toffee #widget > header #branding-overlay { background-color : rgba(0,0,0,0.0); }
+
+.toffee #paging ul li a span, 
+.toffee span.mag-glass {
+  background-image: url(widgets-buttons_toffee.png);
+}
+
+.blue #viewport a                 {            color: #1f466f; }
+.blue #search_options a           {            color: #1f466f; }
+.blue #search_options .selected a { background-color: #1f466f;            color: #f1f0e6; }                    
+.blue #search_options a:hover     { background-color: #1f466f;            color: #f1f0e6; }
+.blue #search_options             { border: solid 1px #1f466f; background-color: #f1f0e6; }
+.blue body > header .color        { background-color: #1f466f; }
+.blue #widget header              { background-color: #1f466f; background-image: url(client_branding_blue.png); }
+
+.blue #widget > header #branding-overlay { background-color : rgba(0,0,0,0.0); }
+
+.blue #paging ul li a span, 
+.blue span.mag-glass {
+  background-image: url(widgets-buttons_blue.png);
+}
