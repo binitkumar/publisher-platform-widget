@@ -9,7 +9,7 @@ class WidgetGeneratorWorker
     theme = parsed_config["theme"]
     color = parsed_config["color"]
     app_name = parsed_config["text"]["main"]
-
+    app_name = "publisher_platform" if app_name.to_s.blank?
 
     dest_folder_name = "tmp/widget-#{Time.now.to_i}-#{rand(1000)}"
     FileUtils::mkdir_p dest_folder_name
