@@ -8,7 +8,8 @@ app.on('ready', () => {
     width: 320,
     height: 450,
     transparent: true,
-    frame: false
+    frame: false,
+    hasShadow: false
   });
   var positioner = new Positioner(mainWindow)
   positioner.move('bottomRight');
