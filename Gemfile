@@ -59,4 +59,8 @@ gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 gem 'paperclip'
 gem 'haml-rails'
 gem 'bootstrap'
+<<<<<<< HEAD
 gem 'passenger'
+=======
+gem 'rest-client'
+>>>>>>> 4a181da89091becefeef6d148675a7692dc4138b
