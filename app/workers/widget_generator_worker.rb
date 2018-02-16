@@ -11,11 +11,14 @@ class WidgetGeneratorWorker
     app_name = parsed_config["text"]["main"]
     app_name = "publisher_platform" if app_name.to_s.blank?
 
-    dest_folder_name = "tmp/widget-#{Time.now.to_i}-#{rand(1000)}"
+    dest_folder_name = "tmp/widgets/widget-#{widget_request_id}-#{rand(1000)}"
     FileUtils::mkdir_p dest_folder_name
 
     download = open(icon_url)
     IO.copy_stream(download, "#{dest_folder_name}/app_icon.png")
+
+    download1 = open(icon_url)
+    IO.copy_stream(download1, "#{dest_folder_name}/app_icon_orig.png")
 
     system("png2icons #{dest_folder_name}/app_icon.png #{dest_folder_name}/app_icon -icns") 
 
@@ -31,6 +34,7 @@ class WidgetGeneratorWorker
 
     FileUtils::cp_r "widget/index.html", dest_folder_name
     FileUtils::cp_r "widget/main.js", dest_folder_name
+    FileUtils::cp_r "widget/config.json", dest_folder_name
     FileUtils::cp_r "widget/package.json", dest_folder_name
 
     text = File.read("widget/js/src.js")
@@ -56,14 +60,36 @@ class WidgetGeneratorWorker
       system("npm run package-mac")
       sleep 5
       system("npm run installer-mac")
+      #sleep 5
+      #system("npm run package-win")
     end
 
-    DesktopWidget.create(
+    dw = DesktopWidget.create!(
       app: File.new("#{dest_folder_name}/#{app_name.gsub(" ","")}.dmg"), 
       app_name: app_name, 
       version: parsed_config["version"],
       client_id: client_id,
-      widget_generation_request_id: widget_request_id
+      widget_generation_request_id: widget_request_id,
+      widget_icon: File.new("#{dest_folder_name}/app_icon_orig.png")
     )
+
+    dw.reload
+
+   app_details = { 
+     widget_generation: {
+       client_id: client_id,
+       os: "Mac",
+       version: parsed_config["version"],
+       app_url: dw.app.url,
+       widget_icon_url: dw.widget_icon.url,
+       widget_request_id: widget_request_id
+     }
+   }
+
+   begin
+     RestClient.post("#{SERVER_URL}/widget_generations", app_details) 
+   rescue => exp
+     puts exp.message
+   end
   end
 end
