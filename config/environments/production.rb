@@ -84,4 +84,4 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
-SERVER_URL = "http://planning.2ndcousinmedia.com/"
+SERVER_URL = "http://dt1.hnp.review/"

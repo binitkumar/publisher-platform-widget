@@ -10,7 +10,7 @@ class WidgetGeneratorWorker
     color = parsed_config["color"]
     app_name = parsed_config["text"]["main"]
     app_name = "publisher_platform" if app_name.to_s.blank?
-
+    phone_no = parsed_config["text"]["phone"]
     dest_folder_name = "tmp/widgets/widget-#{widget_request_id}-#{rand(1000)}"
     FileUtils::mkdir_p dest_folder_name
 
@@ -29,7 +29,9 @@ class WidgetGeneratorWorker
     FileUtils::cp_r "widget/js", dest_folder_name
     FileUtils::cp_r "widget/lib", dest_folder_name
     FileUtils::cp_r "widget/mimetype", dest_folder_name
-    FileUtils::cp_r "widget/phone.html", dest_folder_name
+    text = File.read("widget/phone.html")
+    new_contents = text.gsub("<<PHONE_NUMBER>>", phone_no)
+    File.open("#{dest_folder_name}/phone.html", "w") {|file| file.puts new_contents }
     FileUtils::cp_r "widget/themes", dest_folder_name
 
     FileUtils::cp_r "widget/index.html", dest_folder_name
