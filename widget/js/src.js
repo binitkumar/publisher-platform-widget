@@ -3,6 +3,7 @@
 
 "use strict";
 const remote = require('electron').remote;
+var audio_url = null;
 var config = {
   site: 'http://demo.hnp.com',
   theme: 'brushed_steel',
@@ -1130,6 +1131,7 @@ config = <<WIDGET_CONFIG>>;
         } else {
           a = $("<a />", { href: $(this).data('href') }).appendTo(this); 
         }
+        audio_url = a.attr("href");
         DesktopWidget.Media.addAudioPlayer(a, i + 1);
       });
     },
@@ -1152,14 +1154,10 @@ config = <<WIDGET_CONFIG>>;
         };
         
       $("#audio" + id).html([
-        '<object type="application/x-shockwave-flash" data="', movie, '" width="240" height="24">',
-        '<param name="movie" value="', movie, '" />',
-        '<param name="FlashVars" value="', $.param($.extend(flashVars, DesktopWidget.player_config_flash)), '" />',
-        '<param name="quality" value="high" />',
-        '<param name="menu" value="false" />',
-        '<param name="wmode" value="opaque" />',
-        '<param name="bgcolor" value="', params.bgcolor, '" />',
-        '</object>'
+         '<audio controls>',
+           '<source src="' + audio_url + '" type="audio/mpeg">',
+           'Your browser does not support the audio element.',
+        '</audio>'
       ].join('')).removeAttr('href');
     }
   };
