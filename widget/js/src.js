@@ -293,7 +293,8 @@ config = <<WIDGET_CONFIG>>;
       // Update widget
       $("#widget h1").html(this.config.text.main);
       $("#widget #subhead").html(this.config.text.sub);
-      
+      $("#branding-overlay").css("background", "url(" + this.config.heading_logo + ")");
+ 
       if (this.config.web !== "") {
         $("#more-link").show().attr('href', this.config.web); 
       } else {
