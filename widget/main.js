@@ -13,5 +13,8 @@ app.on('ready', () => {
   });
   var positioner = new Positioner(mainWindow)
   positioner.move('bottomRight');
+  mainWindow.webContents.on('new-window', function(event, urlToOpen) {
+    event.preventDefault();
+  })
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 });
