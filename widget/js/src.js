@@ -2,7 +2,12 @@
 /*global jQuery, document, window, air, DesktopWidget: true, monitor: true, swfobject, nativeWindow, DataCache: true, Tracking: true, Request: true*/
 
 "use strict";
-const remote = require('electron').remote;
+var remote = null;
+try{
+  remote = require('electron').remote;
+}catch(err){
+  console.log("Failed to load electron.");
+}
 var audio_url = null;
 var config = {
   site: 'http://demo.hnp.com',
@@ -1204,7 +1209,6 @@ config = <<WIDGET_CONFIG>>;
   };
 
   jQuery(function ($) {
-    var remote = require("electron").remote;
     var phone_model = new remote.BrowserWindow({
         parent: remote.getCurrentWindow(),
         modal: true,
@@ -1578,7 +1582,6 @@ config = <<WIDGET_CONFIG>>;
       // Enable hiding the window when "close" is clicked
       $("#close").click(function () {
         Tracking.track('closed');
-        const remote = require('electron').remote;
         window = remote.getCurrentWindow();
         window.close();
         nativeWindow.visible = false;

@@ -1,5 +1,10 @@
 $(document).ready(function(){
-  const remote = require('electron').remote;
+  var remote = null;
+  try{
+    remote = require('electron').remote;
+  }catch(err){
+    console.log("Failed to load electron.");
+  }
   $("#close").click(function () {
     Tracking.track('closed');
     remote.BrowserWindow.getFocusedWindow().minimize();
