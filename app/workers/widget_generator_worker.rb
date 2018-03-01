@@ -11,7 +11,7 @@ class WidgetGeneratorWorker
     app_name = parsed_config["text"]["main"]
     app_name = "publisher_platform" if app_name.to_s.blank?
     phone_no = parsed_config["text"]["phone"]
-    dest_folder_name = "tmp/widgets/widget-#{widget_request_id}-#{rand(1000)}"
+    dest_folder_name = "public/widgets/#{widget_request_id}"
     FileUtils::mkdir_p dest_folder_name
 
     download = open(icon_url)
