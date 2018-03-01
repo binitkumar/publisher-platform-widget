@@ -843,12 +843,16 @@ config = <<WIDGET_CONFIG>>;
         e.preventDefault();
         dc.get_messages();
       });
+     
+      if( remote != null ){ 
+        $(".vip_page").hide();
+        dc.get_messages();
+       
+        DesktopWidget.Content.interval = window.setInterval(function () {
+          DesktopWidget.Content.get_messages();
+        }, 120000);
+      }
       
-      dc.get_messages();
-      
-      DesktopWidget.Content.interval = window.setInterval(function () {
-        DesktopWidget.Content.get_messages();
-      }, 120000);
     }
   };
   
