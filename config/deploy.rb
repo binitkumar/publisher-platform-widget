@@ -4,13 +4,11 @@ lock '3.10.1'
 set :application, 'publiser-platform-app'
 set :repo_url, 'git@github.com:binitkumar/publisher-platform-widget.git'
 
-set :rbenv_ruby, '2.3.1'
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/publisher-platform-widget'
+set :deploy_to, '/Users/alan/apps'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -22,16 +20,20 @@ set :deploy_to, '/home/deploy/publisher-platform-widget'
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, false
 
 # Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/widgets')
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, { 
+  path: "/Users/alan/.nvm/versions/node/v6.9.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin",
+  OBJC_DISABLE_INITIALIZE_FORK_SAFETY: "YES"
+
+}
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5

@@ -32,8 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,13 +47,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails_layout'
   gem 'capistrano-rails'
-  gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano-sidekiq'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sidekiq'
-gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 gem 'paperclip'
 gem 'haml-rails'
 gem 'bootstrap'

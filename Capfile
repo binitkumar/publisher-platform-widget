@@ -24,8 +24,6 @@ require 'capistrano/deploy'
 # require 'capistrano/passenger'
 
 require 'capistrano/rails'
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
 require 'capistrano/sidekiq'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
