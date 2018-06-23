@@ -331,7 +331,11 @@ config = <<WIDGET_CONFIG>>;
         }
       } else {
         if (dw.air) {
-          window.nativeWindow.height = 425;
+          try{
+            window.nativeWindow.height = 425;
+          }catch(err){
+            console.log(err);
+          }
         }
       }
       
@@ -1213,13 +1217,17 @@ config = <<WIDGET_CONFIG>>;
   };
 
   jQuery(function ($) {
-    var phone_model = new remote.BrowserWindow({
-        parent: remote.getCurrentWindow(),
-        modal: true,
-        height: 150,
-        width: 575,
-        show: false
-      });
+    try{
+      var phone_model = new remote.BrowserWindow({
+          parent: remote.getCurrentWindow(),
+          modal: true,
+          height: 150,
+          width: 575,
+          show: false
+        });
+    }catch(err){
+      console.log(err);
+    }
     var phoneIsSetup = false, 
         phoneSetup = function () {
           phoneIsSetup = true;
@@ -1442,57 +1450,59 @@ config = <<WIDGET_CONFIG>>;
         //window.phoneNumber = require('electron-modal');
       }
     };
-     
-    var iconLoadComplete = function (event) { 
-          air.NativeApplication.nativeApplication.icon.bitmaps = [event.target.content.bitmapData]; 
-        },
-      iconLoad = new air.Loader(),
-      iconMenu = new air.NativeMenu(),
-      exitCommand = iconMenu.addItem(new air.NativeMenuItem("Exit"));
+    try{ 
+      var iconLoadComplete = function (event) { 
+            air.NativeApplication.nativeApplication.icon.bitmaps = [event.target.content.bitmapData]; 
+          },
+        iconLoad = new air.Loader(),
+        iconMenu = new air.NativeMenu(),
+        exitCommand = iconMenu.addItem(new air.NativeMenuItem("Exit"));
 
-    air.NativeApplication.nativeApplication.autoExit = false; 
+      air.NativeApplication.nativeApplication.autoExit = false; 
     
-    exitCommand.addEventListener(air.Event.SELECT, function () { 
-      Tracking.track('quit');
-      air.NativeApplication.nativeApplication.icon.bitmaps = [];
-      air.NativeApplication.nativeApplication.exit(); 
-    }); 
+      exitCommand.addEventListener(air.Event.SELECT, function () { 
+        Tracking.track('quit');
+        air.NativeApplication.nativeApplication.icon.bitmaps = [];
+        air.NativeApplication.nativeApplication.exit(); 
+      }); 
 
-    air.NativeApplication.nativeApplication.addEventListener(air.Event.EXITING, function () {
-      Tracking.track('quit');
-      air.NativeApplication.nativeApplication.icon.bitmaps = []; 
-    });
+      air.NativeApplication.nativeApplication.addEventListener(air.Event.EXITING, function () {
+        Tracking.track('quit');
+        air.NativeApplication.nativeApplication.icon.bitmaps = []; 
+      });
 
-    window.nativeWindow.addEventListener(air.Event.CLOSE, function () {
-      Tracking.track('quit');
-      air.NativeApplication.nativeApplication.icon.bitmaps = [];
-      air.NativeApplication.nativeApplication.exit();
-    });
+      window.nativeWindow.addEventListener(air.Event.CLOSE, function () {
+        Tracking.track('quit');
+        air.NativeApplication.nativeApplication.icon.bitmaps = [];
+        air.NativeApplication.nativeApplication.exit();
+      });
 
-    if (air.NativeApplication.supportsSystemTrayIcon) {
-      iconLoad.contentLoaderInfo.addEventListener(air.Event.COMPLETE, iconLoadComplete); 
-      iconLoad.load(new air.URLRequest("icons/icon-16.png")); 
-      air.NativeApplication.nativeApplication.icon.tooltip = (function () {
-        var xml       = air.NativeApplication.nativeApplication.applicationDescriptor,
+      if (air.NativeApplication.supportsSystemTrayIcon) {
+        iconLoad.contentLoaderInfo.addEventListener(air.Event.COMPLETE, iconLoadComplete); 
+        iconLoad.load(new air.URLRequest("icons/icon-16.png")); 
+        air.NativeApplication.nativeApplication.icon.tooltip = (function () {
+          var xml       = air.NativeApplication.nativeApplication.applicationDescriptor,
             appXml    = new DOMParser(),
             xmlObject = appXml.parseFromString(xml, "text/xml");
         
-        // get filename from app.xml
-        return xmlObject.getElementsByTagName('filename')[0].firstChild.data;
-      }());
-      air.NativeApplication.nativeApplication.icon.menu = iconMenu; 
-      air.NativeApplication.nativeApplication.icon.addEventListener("click", function () {
-        //air.trace('iconclicked');
-        window.nativeWindow.activate();
-      });
-    } 
+          // get filename from app.xml
+          return xmlObject.getElementsByTagName('filename')[0].firstChild.data;
+        }());
+        air.NativeApplication.nativeApplication.icon.menu = iconMenu; 
+        air.NativeApplication.nativeApplication.icon.addEventListener("click", function () {
+          //air.trace('iconclicked');
+          window.nativeWindow.activate();
+        });
+      } 
 
-    if (air.NativeApplication.supportsDockIcon) { 
-      iconLoad.contentLoaderInfo.addEventListener(air.Event.COMPLETE, iconLoadComplete); 
-      iconLoad.load(new air.URLRequest("icons/icon-128.png")); 
-      air.NativeApplication.nativeApplication.icon.menu = iconMenu; 
+      if (air.NativeApplication.supportsDockIcon) { 
+        iconLoad.contentLoaderInfo.addEventListener(air.Event.COMPLETE, iconLoadComplete); 
+        iconLoad.load(new air.URLRequest("icons/icon-128.png")); 
+        air.NativeApplication.nativeApplication.icon.menu = iconMenu; 
+      }
+    }catch(err){
+      console.log(err);
     }
-     
 
     // Namespace for AIR properties/functions
     DesktopWidget.air = {

@@ -61,9 +61,9 @@ class WidgetGeneratorWorker
       sleep 2
       system("npm run package-mac")
       sleep 5
+      system("npm run codesign-mac")
+      sleep 5
       system("npm run installer-mac")
-      #sleep 5
-      #system("npm run package-win")
     end
 
     dw = DesktopWidget.create!(
