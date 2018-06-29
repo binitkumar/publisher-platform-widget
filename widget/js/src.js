@@ -326,9 +326,6 @@ config = <<WIDGET_CONFIG>>;
             }) :
             $("<img />", { src: imgSrc })
         }).insertBefore('#widget > footer');
-        if (dw.air) {
-          window.nativeWindow.height = 425 + (dw.config.branding.height || 40 );
-        }
       } else {
         if (dw.air) {
           try{
@@ -1557,27 +1554,27 @@ config = <<WIDGET_CONFIG>>;
     try { 
       air.NativeApplication.nativeApplication.startAtLogin = true; 
       DesktopWidget.air.startAtLogin = true;
+      // Handle showing the app on activation
+      air.NativeApplication.nativeApplication.addEventListener("deactivate", DesktopWidget.air.onDeactivate);
+      air.NativeApplication.nativeApplication.addEventListener("activate", DesktopWidget.air.onActivate);
+      air.NativeApplication.nativeApplication.addEventListener("invoke",   DesktopWidget.air.onInvoke); 
+      
+      
+      // Open link in user's default browser window.
+      // Source for the next two functions: http://sevenwire.com/blog/2009/08/26/adobe-air-opening-external-links-in-another-browser.html
+      DesktopWidget.air.openExternalURL = function (href) {
+        var request = new air.URLRequest(href);
+        try {
+          air.navigateToURL(request);
+        } catch (e) {
+          // handle error here
+          air.Introspector.Console.log(e);
+        }
+      };
+
     } catch (e) { 
       DesktopWidget.air.startAtLogin = false;
     }
-
-    // Handle showing the app on activation
-    air.NativeApplication.nativeApplication.addEventListener("deactivate", DesktopWidget.air.onDeactivate);
-    air.NativeApplication.nativeApplication.addEventListener("activate", DesktopWidget.air.onActivate);
-    air.NativeApplication.nativeApplication.addEventListener("invoke",   DesktopWidget.air.onInvoke); 
-
-
-    // Open link in user's default browser window.
-    // Source for the next two functions: http://sevenwire.com/blog/2009/08/26/adobe-air-opening-external-links-in-another-browser.html
-    DesktopWidget.air.openExternalURL = function (href) {
-      var request = new air.URLRequest(href);
-      try {
-        air.navigateToURL(request);
-      } catch (e) {
-        // handle error here
-        air.Introspector.Console.log(e);
-      }
-    };
 
     // Open External Links in Browser
     $('a[href^=http]').live("click", function (event) {
