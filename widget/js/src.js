@@ -1368,12 +1368,10 @@ config = <<WIDGET_CONFIG>>;
           window.alert('There was a problem sending your ' + $("#reason").val() + '. Please make sure you are connected to the internet, then try to send the form again.');
         } else {
           submit.addClass('sent');
-          window.setTimeout(function () {
-            $("#actions li").removeClass('selected');
-            $("#contact_form").panel(false, function () {
-              submit.removeClass('sent');
-            });
-          }, 1500);
+          $("#actions li").removeClass('selected');
+          $("#contact_form").panel(false, function () {
+            submit.removeClass('sent');
+          });
         }
       };
       
@@ -1585,19 +1583,14 @@ config = <<WIDGET_CONFIG>>;
     // DOM Ready
     $(function () {
 
-      // Enable moving the window around
-      $("#move-handle").mousedown(function () {
-        nativeWindow.startMove(); 
-      });
-
-      // Enable hiding the window when "close" is clicked
-      $("#close").click(function () {
-        Tracking.track('closed');
-        window = remote.getCurrentWindow();
-        window.close();
-        nativeWindow.visible = false;
-      });
-
+      try{
+        // Enable moving the window around
+        $("#move-handle").mousedown(function () {
+          nativeWindow.startMove(); 
+        });
+      }catch(exp){
+        console.log(exp)
+      }
     });
   //} else {
   //  DesktopWidget.air = false;
