@@ -1574,12 +1574,6 @@ config = <<WIDGET_CONFIG>>;
       DesktopWidget.air.startAtLogin = false;
     }
 
-    // Open External Links in Browser
-    $('a[href^=http]').live("click", function (event) {
-      event.preventDefault();
-      DesktopWidget.air.openExternalURL(this.href);
-    });
-
     // DOM Ready
     $(function () {
 
