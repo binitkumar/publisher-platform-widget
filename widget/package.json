@@ -4,11 +4,11 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package-mac": "electron-packager . <<APP_NAME>> --overwrite --platform=darwin --arch=x64 --icon=app_icon.icns --electron-version=1.7.9 --version=0.0.1 --app-bundle-id=com.2ndcousin.desktopwidget --app-version=1.0.0 --build-version=1.0.0",
+    "package-mac": "electron-packager . <<APP_NAME>> --overwrite --platform=darwin --arch=x64 --icon=app_icon.icns --electron-version=1.7.9 --version=0.0.1 --app-bundle-id=com.<<APP_NAME_LOWERCASE>>.desktopwidget --app-version=1.0.0 --build-version=1.0.0",
     "codesign-mac": "electron-installer-codesign <<APP_NAME>>-darwin-x64/<<APP_NAME>>.app 7C93832466C6072A991905BBA611AB6BB6AD524A",
     "installer-mac": "electron-installer-dmg <<APP_NAME>>-darwin-x64/<<APP_NAME>>.app <<APP_NAME>>",
-    "package-win": "electron-packager . <<APP_NAME>> --overwrite --platform=win32 --arch=x64 --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"PublisherPlatform\" ",
-    "package-linux": "electron-packager . PublisherPlatform --overwrite --asar=true --platform=linux --arch=x64 --icon=icons/icon-badge.png --electron-version=1.7.9"
+    "package-win": "electron-packager . <<APP_NAME>> --overwrite --platform=win32 --arch=x64 --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"<<APP_NAME>>\" ",
+    "package-linux": "electron-packager . <<APP_NAME>> --overwrite --asar=true --platform=linux --arch=x64 --icon=icons/icon-badge.png --electron-version=1.7.9"
   },
   "dependencies": {
     "electron-modal": "^1.0.0",
@@ -18,6 +18,8 @@
   "devDependencies": {
     "electron": "1.7.9",
     "electron-installer-dmg": "^0.2.1",
-    "electron-packager": "^10.1.0"
+    "electron-installer-windows": "^1.1.0",
+    "electron-packager": "^10.1.0",
+    "electron-winstaller": "2.7.0"
   }
 }

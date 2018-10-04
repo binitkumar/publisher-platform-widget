@@ -12,7 +12,7 @@ class WidgetGeneratorWorker
         parsed_config = JSON.parse(config)
         theme = parsed_config["theme"]
         color = parsed_config["color"]
-        app_name = parsed_config["text"]["main"]
+        app_name = parsed_config["text"]["main"].parameterize
         app_name = "publisher_platform" if app_name.to_s.blank?
         phone_no = parsed_config["text"]["phone"]
         dest_folder_name = "public/widgets/#{widget_request_id}"
@@ -42,6 +42,7 @@ class WidgetGeneratorWorker
         FileUtils::cp_r "widget/main.js", dest_folder_name
         FileUtils::cp_r "widget/config.json", dest_folder_name
         FileUtils::cp_r "widget/package.json", dest_folder_name
+        FileUtils::cp_r "widget/winstaller.js", dest_folder_name
         
         text = File.read("widget/js/src.js")
         new_contents = text.gsub("<<WIDGET_CONFIG>>", config)
@@ -52,9 +53,16 @@ class WidgetGeneratorWorker
         new_contents = new_contents.gsub("<<COLOR>>", color)
         File.open("#{dest_folder_name}/js/theme.js", "w") {|file| file.puts new_contents }
         
+        text = File.read("#{dest_folder_name}/winstaller.js")
+        new_contents = text.gsub("<<APP_NAME>>", app_name.gsub(" ", ""))
+        new_contents = new_contents.gsub("<<REQUEST_ID>>", widget_request_id.to_s)
+        new_contents = new_contents.gsub("<<APP_NAME_LOWERCASE>>", app_name.downcase.gsub(" ", ""))
+        File.open("#{dest_folder_name}/winstaller.js", "w") {|file| file.puts new_contents }
+        
         text = File.read("#{dest_folder_name}/package.json")
         new_contents = text.gsub("<<APP_NAME_WITH_SPACE>>", app_name.gsub(" ",""))
         new_contents = new_contents.gsub("<<APP_NAME>>", app_name.gsub(" ", ""))
+        new_contents = new_contents.gsub("<<APP_NAME_LOWERCASE>>", app_name.downcase.gsub(" ", ""))
         new_contents = new_contents.gsub("<<DEST_FOLDER>>", dest_folder_name)
         File.open("#{dest_folder_name}/package.json", "w") {|file| file.puts new_contents }
         
@@ -64,10 +72,14 @@ class WidgetGeneratorWorker
           system("npm install")
           sleep 2
           system("npm run package-mac")
-          sleep 5
+          sleep 2
           system("npm run codesign-mac")
-          sleep 5
+          sleep 2
           system("npm run installer-mac")
+          sleep 2
+          system("npm run package-win")
+          sleep 2
+          system("node winstaller.js")
         end
         
         dw = DesktopWidget.create!(
