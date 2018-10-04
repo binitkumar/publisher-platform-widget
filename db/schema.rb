@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215180916) do
+ActiveRecord::Schema.define(version: 20181004174221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20180215180916) do
     t.string   "widget_icon_content_type"
     t.integer  "widget_icon_file_size"
     t.datetime "widget_icon_updated_at"
+    t.string   "linux_app_file_name"
+    t.string   "linux_app_content_type"
+    t.bigint   "linux_app_file_size"
+    t.datetime "linux_app_updated_at"
+    t.string   "windows_app_file_name"
+    t.string   "windows_app_content_type"
+    t.bigint   "windows_app_file_size"
+    t.datetime "windows_app_updated_at"
   end
 
   create_table "widget_generation_requests", force: :cascade do |t|

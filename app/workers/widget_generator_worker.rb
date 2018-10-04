@@ -70,21 +70,25 @@ class WidgetGeneratorWorker
         
         Dir.chdir(dest_folder_name.chomp) do
           system("npm install")
-          sleep 2
           system("npm run package-mac")
-          sleep 2
           system("npm run codesign-mac")
-          sleep 2
           system("npm run installer-mac")
-          sleep 2
           system("npm run package-win")
-          sleep 2
           system("node winstaller.js")
+          system("zip -rj #{app_name}.zip windows_app")
+          system("npm run package-linux")
+          system("npm run installer-linux")
+          FileUtils::rm_rf "#{app_name.downcase}-darwin-x64"
+          FileUtils::rm_rf "#{app_name.downcase}-linux-x64"
+          FileUtils::rm_rf "windows_app"
+          FileUtils::rm_rf "node_modules"
         end
         
         dw = DesktopWidget.create!(
           app: File.new("#{dest_folder_name}/#{app_name.gsub(" ","")}.dmg"), 
-          app_name: app_name, 
+          windows_app: File.new("#{dest_folder_name}/#{app_name.downcase.gsub(" ","")}.zip"), 
+          linux_app: File.new("#{dest_folder_name}/linux_app/#{app_name.downcase.gsub(" ","")}_1.0.1_amd64.deb"), 
+          app_name: app_name,
           version: parsed_config["version"],
           client_id: client_id,
           widget_generation_request_id: widget_request_id,
@@ -93,12 +97,14 @@ class WidgetGeneratorWorker
         
         dw.reload
         
-        app_details = { 
+        app_details = {
           widget_generation: {
             client_id: client_id,
             os: "Mac",
             version: parsed_config["version"],
             app_url: dw.app.url,
+            windows_app_url: dw.windows_app.url,
+            linux_app_url: dw.linux_app.url,
             widget_icon_url: dw.widget_icon.url,
             widget_request_id: widget_request_id
           }

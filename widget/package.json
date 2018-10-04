@@ -8,7 +8,8 @@
     "codesign-mac": "electron-installer-codesign <<APP_NAME>>-darwin-x64/<<APP_NAME>>.app 7C93832466C6072A991905BBA611AB6BB6AD524A",
     "installer-mac": "electron-installer-dmg <<APP_NAME>>-darwin-x64/<<APP_NAME>>.app <<APP_NAME>>",
     "package-win": "electron-packager . <<APP_NAME>> --overwrite --platform=win32 --arch=x64 --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"<<APP_NAME>>\" ",
-    "package-linux": "electron-packager . <<APP_NAME>> --overwrite --asar=true --platform=linux --arch=x64 --icon=icons/icon-badge.png --electron-version=1.7.9"
+    "package-linux": "electron-packager . <<APP_NAME>> --overwrite --asar=true --platform=linux --arch=x64 --icon=app_icon.png --electron-version=1.7.9"
+    "installer-linux": "electron-installer-debian --src <<APP_NAME_LOWERCASE>>-linux-x64/ --dest linux_app --arch amd64"
   },
   "dependencies": {
     "electron-modal": "^1.0.0",
@@ -19,6 +20,8 @@
     "electron": "1.7.9",
     "electron-installer-dmg": "^0.2.1",
     "electron-installer-windows": "^1.1.0",
+    "electron-linux-installer": "^0.2.2-beta",
+    "electron-installer-debian": "^0.8.1",
     "electron-packager": "^10.1.0",
     "electron-winstaller": "2.7.0"
   }
