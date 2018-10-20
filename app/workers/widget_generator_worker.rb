@@ -100,7 +100,7 @@ class WidgetGeneratorWorker
             version: parsed_config["version"],
             app_url: dw.app.url,
             #windows_app_url: dw.windows_app.url,
-            #linux_app_url: dw.linux_app.url,
+            linux_app_url: dw.linux_app.url,
             widget_icon_url: dw.widget_icon.url,
             widget_request_id: widget_request_id
           }
