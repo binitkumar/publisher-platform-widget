@@ -71,15 +71,11 @@ class WidgetGeneratorWorker
         Dir.chdir(dest_folder_name.chomp) do
           system("npm install")
           system("npm run package-mac")
-          system("npm run codesign-mac")
           system("npm run installer-mac")
-          #system("npm run package-win")
-          #system("node winstaller.js")
-          #system("zip -rj #{app_name}.zip windows_app")
-          #system("npm run package-linux")
-          #system("npm run installer-linux")
-          #FileUtils::rm_rf "#{app_name.downcase}-darwin-x64"
-          #FileUtils::rm_rf "#{app_name.downcase}-linux-x64"
+          system("npm run package-linux")
+          system("npm run installer-linux")
+          FileUtils::rm_rf "#{app_name.downcase}-darwin-x64"
+          FileUtils::rm_rf "#{app_name.downcase}-linux-x64"
           FileUtils::rm_rf "windows_app"
           FileUtils::rm_rf "node_modules"
         end
@@ -87,7 +83,7 @@ class WidgetGeneratorWorker
         dw = DesktopWidget.create!(
           app: File.new("#{dest_folder_name}/#{app_name.gsub(" ","")}.dmg"), 
           #windows_app: File.new("#{dest_folder_name}/#{app_name.downcase.gsub(" ","")}.zip"), 
-          #linux_app: File.new("#{dest_folder_name}/linux_app/#{app_name.downcase.gsub(" ","")}_1.0.1_amd64.deb"), 
+          linux_app: File.new("#{dest_folder_name}/linux_app/#{app_name.downcase.gsub(" ","")}_1.0.1_amd64.deb"), 
           app_name: app_name,
           version: parsed_config["version"],
           client_id: client_id,
