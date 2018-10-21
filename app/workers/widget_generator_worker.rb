@@ -107,10 +107,7 @@ class WidgetGeneratorWorker
           app_details = {
             widget_generation: {
               client_id: client_id,
-              version: parsed_config["version"],
-              windows_app_url: 'application.zip',
-              widget_icon_url: "app_icon_orig.png",
-              widget_request_id: widget_request_id
+              windows_app_url: "#{widget_request_id}/application.zip",
             }
           }
         end
