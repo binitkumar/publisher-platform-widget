@@ -297,6 +297,7 @@ config = <<WIDGET_CONFIG>>;
       var dw = this;
       // Update widget
       $("#widget h1").html(this.config.text.main);
+      $(".company-name").html(this.config.business);
       $("#widget #subhead").html(this.config.text.sub);
       $("#branding-overlay").css("background", "url(" + this.config.heading_logo + ")");
  
