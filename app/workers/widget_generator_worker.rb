@@ -75,10 +75,10 @@ class WidgetGeneratorWorker
             system("png2icons app_icon.png app_icon -icns") 
             system("npm run package-mac")
             system("npm run installer-mac")
-            system("npm run package-linux")
-            system("npm run installer-linux")
+            #system("npm run package-linux")
+            #system("npm run installer-linux")
             FileUtils::rm_rf "#{app_name.downcase}-darwin-x64"
-            FileUtils::rm_rf "#{app_name.downcase}-linux-x64"
+            #FileUtils::rm_rf "#{app_name.downcase}-linux-x64"
             FileUtils::rm_rf "windows_app"
             FileUtils::rm_rf "node_modules"
           end
@@ -89,7 +89,7 @@ class WidgetGeneratorWorker
               version: parsed_config["version"],
               app_url: "#{app_name.gsub(" ","")}.dmg",
               #windows_app_url: dw.windows_app.url,
-              linux_app_url: "linux_app/#{app_name.downcase.gsub(" ","")}_1.0.1_amd64.deb",
+              #linux_app_url: "linux_app/#{app_name.downcase.gsub(" ","")}_1.0.1_amd64.deb",
               widget_icon_url: "app_icon_orig.png",
               widget_request_id: widget_request_id
             }
