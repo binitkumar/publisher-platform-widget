@@ -12,7 +12,7 @@ app.on('ready', () => {
     transparent: true,
     frame: false,
     hasShadow: false,
-    icon: path('app_icon.png')
+    icon: path.join(__dirname, 'app_icon.png')
   });
   var positioner = new Positioner(mainWindow)
   positioner.move('bottomRight');
