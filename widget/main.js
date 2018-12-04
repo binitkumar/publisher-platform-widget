@@ -1,6 +1,5 @@
+const {app, BrowserWindow} = require('electron');
 if(require('electron-squirrel-startup')){
-
-  const app = require('app');
 
   // this should be placed at top of main.js to handle setup events quickly
   if (handleSquirrelEvent()) {
@@ -71,7 +70,6 @@ if(require('electron-squirrel-startup')){
   };
 }
 
-const {app, BrowserWindow} = require('electron');
 var Positioner = require('electron-positioner');
 var path = require('path')
 

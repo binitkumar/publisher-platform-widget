@@ -97,6 +97,7 @@ class WidgetGeneratorWorker
         else
           Dir.chdir(dest_folder_name.chomp) do
             system("npm install")
+            system("png-to-ico app_icon.png > app.ico")
             system("npm run package-win")
             system("node winstaller.js")
             system("zip -r application.zip windows_app/")

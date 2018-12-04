@@ -4,6 +4,10 @@ resultPromise = electronInstaller.createWindowsInstaller({
     outputDirectory: 'windows_app',
     authors: '2ndCousinMedia LLC',
     description: '<<APP_NAME>> from 2ndCousinMedia',
-    exe: '<<APP_NAME_LOWERCASE>>.exe'
+    exe: '<<APP_NAME_LOWERCASE>>.exe',
+    icon: './app.ico',
+    setupIcon: './app.ico',
+    setupExe: '<<APP_NAME_LOWERCASE>>-installer.exe',
+    noMsi: true
   });
 resultPromise.then(() => console.log("It worked!"), (e) => console.log(`No dice: ${e.message}`));

@@ -6,13 +6,14 @@
     "start": "electron .",
     "package-mac": "electron-packager . <<APP_NAME>> --overwrite --platform=darwin --arch=x64 --icon=app_icon.icns --electron-version=1.7.9 --version=0.0.1 --app-bundle-id=com.<<APP_NAME_LOWERCASE>>.desktopwidget --app-version=1.0.0 --build-version=1.0.0",
     "installer-mac": "electron-installer-dmg <<APP_NAME>>-darwin-x64/<<APP_NAME>>.app <<APP_NAME>>  --platform=mas --osx-sign.type=distribution",
-    "package-win": "electron-packager . <<APP_NAME>> --overwrite --platform=win32 --arch=x64 --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"<<APP_NAME>>\" ",
+    "package-win": "electron-packager . <<APP_NAME>> --overwrite --platform=win32 --arch=x64 --icon=app.ico --out=release-builds --version-string.CompanyName=\"<<APP_NAME>>\" --version-string.FileDescription=\"<<APP_NAME>>\" --version-string.ProductName=\"<<APP_NAME>>\" ",
     "package-linux": "electron-packager . <<APP_NAME>> --overwrite --asar=true --platform=linux --arch=x64 --icon=app_icon.png --electron-version=1.7.9",
     "installer-linux": "electron-installer-debian --src <<APP_NAME_LOWERCASE>>-linux-x64/ --dest linux_app --arch amd64 --description=\"Publisher Platform app\""
   },
   "dependencies": {
     "electron-modal": "^1.0.0",
     "electron-positioner": "^3.0.0",
+    "electron-squirrel-startup": "^1.0.0",
     "latest-version": "^3.1.0"
   },
   "devDependencies": {
@@ -22,6 +23,7 @@
     "electron-linux-installer": "^0.2.2-beta",
     "electron-installer-debian": "^0.8.1",
     "electron-packager": "^10.1.0",
-    "electron-winstaller": "2.7.0"
+    "electron-winstaller": "2.7.0",
+    "png-to-ico": "^2.0.1"
   }
 }
